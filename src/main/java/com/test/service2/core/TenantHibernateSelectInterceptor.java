@@ -1,6 +1,5 @@
-package com.test.service2.component;
+package com.test.service2.core;
 
-import com.test.service2.core.TenantContext;
 import com.test.service2.service.MultitenantService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -10,10 +9,10 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class MultiTenantAspect {
+public class TenantHibernateSelectInterceptor {
 
     @Before("execution(* com.test.service2.service.MultitenantService.* (..)) && target(multitenantService)")
-    public void aroundExecution(JoinPoint pjp, MultitenantService multitenantService) throws Throwable {
+    public void aroundMultiTenantServiceExecution(JoinPoint pjp, MultitenantService multitenantService) throws Throwable {
         org.hibernate.Filter filter = multitenantService.entityManager.unwrap(Session.class).enableFilter("tenantFilter");
         filter.setParameter("tenant_id", TenantContext.getCurrentTenant());
         filter.validate();

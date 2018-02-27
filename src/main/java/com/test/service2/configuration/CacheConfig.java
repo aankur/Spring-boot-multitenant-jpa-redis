@@ -15,7 +15,6 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
@@ -28,7 +27,6 @@ public class CacheConfig extends CachingConfigurerSupport {
     @Value("${spring.redis.port}")
     private int port ;
 
-    //public static final String PROPERTY_RESOLVING_CACHE_RESOLVER_BEAN_NAME = "propertyResolvingCacheResolver";
     @Autowired
     private CacheManager cacheManager;
     @Autowired

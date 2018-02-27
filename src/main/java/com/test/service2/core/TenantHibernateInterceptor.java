@@ -1,4 +1,4 @@
-package com.test.service2.interceptor;
+package com.test.service2.core;
 
 import com.test.service2.core.TenantContext;
 import com.test.service2.entity.Tenant;
@@ -6,9 +6,9 @@ import org.hibernate.EmptyInterceptor;
 
 import java.io.Serializable;
 
-public class TenantInterceptor extends EmptyInterceptor {
+public class TenantHibernateInterceptor extends EmptyInterceptor {
 
-    public TenantInterceptor()
+    public TenantHibernateInterceptor()
     {
         System.out.println("Created TenantInterceptor");
     }
