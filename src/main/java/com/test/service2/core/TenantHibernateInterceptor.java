@@ -23,6 +23,7 @@ public class TenantHibernateInterceptor extends EmptyInterceptor {
             if(propertyNames[i].equals("tenant_id"))
             {
                 state[i] = TenantContext.getCurrentTenant();
+                break;
             }
         }
     }
@@ -37,6 +38,7 @@ public class TenantHibernateInterceptor extends EmptyInterceptor {
             if(propertyNames[i].equals("tenant_id"))
             {
                 currentState[i] = TenantContext.getCurrentTenant();
+                break;
             }
         }
         return true;
@@ -52,6 +54,7 @@ public class TenantHibernateInterceptor extends EmptyInterceptor {
             if(propertyNames[i].equals("tenant_id"))
             {
                 state[i] = TenantContext.getCurrentTenant();
+                break;
             }
         }
         return true;
